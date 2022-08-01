@@ -7,7 +7,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
+    "@types/jest": "^28.1.6",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "fix": "npm run -s format && npm run -s lint:fix",
     " f o r m a t ": " p r e t t i e r - - w r i t e - - l o g l e v e l = w a r n'{public,src}/**/*.{js,jsx,ts,tsx,html,gql,graphql,json}'",
@@ -52,18 +52,23 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
+    "babel-jest": "^28.1.3",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "jest": "^28.1.3",
     "prettier": "^2.7.1",
     "stylelint": "^14.9.1",
     "stylelint-config-recess-order": "^3.0.0",
     "stylelint-config-standard": "^26.0.0",
-    "stylelint-order": "^5.0.0"
+    "stylelint-order": "^5.0.0",
+    "ts-jest": "^28.0.7"
   }
 }
