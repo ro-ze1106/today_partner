@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "fix": "npm run -s format && npm run -s lint:fix",
     " f o r m a t ": " p r e t t i e r - - w r i t e - - l o g l e v e l = w a r n'{public,src}/**/*.{js,jsx,ts,tsx,html,gql,graphql,json}'",
