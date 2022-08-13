@@ -1,9 +1,16 @@
 import React from 'react';
+import styled from "@emotion/styled";
+import Button from '@mui/material/Button';
 
+const SButton = styled.button`
+  border: none;
+`
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <SButton>ボタン</SButton>
+        <Button variant="text">Text</Button>
         <p>
           Edit <code>src/App.tsx</code>
         </p>
