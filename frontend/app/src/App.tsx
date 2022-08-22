@@ -6,6 +6,9 @@ const SButton = styled.button`
   border: none;
 `
 
+const SButton = styled.button`
+  border: none;
+`
 function App() {
   return (
     <div className="App">
@@ -13,7 +16,7 @@ function App() {
       <SButton>ボタン</SButton>
         <Button variant="text">Text</Button>
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit <code>src/App.tsx</code>
         </p>
         <a
           className="App-link"
