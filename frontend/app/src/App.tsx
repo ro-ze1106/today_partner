@@ -5,11 +5,15 @@ import Button from '@mui/material/Button';
 const SButton = styled.button`
   border: none;
 `
+
+const SButton = styled.button`
+  border: none;
+`
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <SButton>ボタン</SButton>
+      <SButton>ボタン</SButton>
         <Button variant="text">Text</Button>
         <p>
           Edit <code>src/App.tsx</code>
