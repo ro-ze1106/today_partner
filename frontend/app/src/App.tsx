@@ -1,12 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from "@emotion/styled";
+import Button from '@mui/material/Button';
+
+const SButton = styled.button`
+  border: none;
+`
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <SButton>ボタン</SButton>
+        <Button variant="text">Text</Button>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
