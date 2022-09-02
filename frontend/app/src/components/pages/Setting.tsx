@@ -1,7 +1,7 @@
 import { FC, memo } from "react";
 
 export const Setting: FC = memo(() => 
-  <p>HOME</p>
+  <p>Setting</p>
 );
 
 export default Setting;
