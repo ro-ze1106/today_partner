@@ -16,15 +16,11 @@ import * as React from 'react';
 import { FC, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const HomeText = () => {
-  const navigate = useNavigate();
-    navigate("./Home", { replace: true });
-  }
-
-const pages = [ {HomeText} ];
+const pages = [ 'Home', 'About', 'Setting'];
 const settings = ['ログイン', '新規登録'];
 
 export const Header: FC = memo(() => {
+  const navigate = useNavigate();
   
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null,
@@ -100,7 +96,7 @@ export const Header: FC = memo(() => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={()=>{navigate(`./${page}`, { replace: true });}}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
