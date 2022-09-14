@@ -16,16 +16,20 @@ import * as React from 'react';
 import { FC, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const HomeText = () => {
-  const navigate = useNavigate();
-    navigate("./Home", { replace: true });
-  }
+type herderMenuType = {
+  display_name: string;
+  link: string;
+}[];
 
-const pages = [ {HomeText} ];
+const headerMenu: herderMenuType = [ { display_name: 'ホーム', link: '/' } ,
+{ display_name: '使い方', link: '/about' },
+{ display_name: '設定', link: '/setting'}, ];
+
 const settings = ['ログイン', '新規登録'];
 
 export const Header: FC = memo(() => {
-  
+  const navigate = useNavigate();
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null,
   );
@@ -99,9 +103,9 @@ export const Header: FC = memo(() => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {headerMenu.map((menuList) => (
+                <MenuItem key={menuList.display_name} onClick={()=>{navigate(`${menuList.link}`, { replace: true });}}>
+                  <Typography textAlign="center">{menuList.display_name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -125,13 +129,12 @@ export const Header: FC = memo(() => {
             今日の相棒
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+            {headerMenu.map((menuList) => (
+              <Button key={menuList.display_name}
+              onClick={()=>{navigate(`${menuList.link}`, { replace: true });}}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                {menuList.display_name}
               </Button>
             ))}
           </Box>
