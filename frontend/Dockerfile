@@ -9,4 +9,5 @@ RUN yarn
 
 COPY . $APP/
 
+
 CMD ["yarn", "dev"] 
