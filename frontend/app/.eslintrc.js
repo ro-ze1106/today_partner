@@ -96,6 +96,13 @@ module.exports = {
     // JSX 記述を使用する場合に react モジュールを React としてインポートすることを強制する。
     // 新しい JSX 変換形式を用いる場合はインポートが不要になるためこの設定を無効化
     'react/react-in-jsx-scope': 'off',
+    'react/function-component-definition': [
+      2,
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'function-expression',
+      },
+    ],
   },
   overrides: [
     {

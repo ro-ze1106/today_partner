@@ -12,7 +12,7 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 
 import { signIn } from '../../lib/api/auth';
-import { SignInParams } from '../../type/Login_attestation';
+import { SignInParams, User } from '../../type/Login_attestation';
 import { AuthContext } from '../../AuthContext';
 import AlertMessage from '../utils/AlertMessage';
 
@@ -67,8 +67,10 @@ const SignIn: FC = () => {
         Cookies.set('_client', res.headers.client || '');
         Cookies.set('_uid', res.headers.uid || '');
 
+        const user = res.data as User
+
         setIsSignedIn(true);
-        setCurrentUser(res.data.data);
+        setCurrentUser(user.data as User);
 
         navigate('/');
 
@@ -117,7 +119,7 @@ const SignIn: FC = () => {
               color="default"
               disabled={!!(!email || !password)} // 空欄があった場合はボタンを押せないように
               className={classes.submitBtn}
-              onClick={handleSubmit}
+              onClick={() => handleSubmit}
             >
               Submit
             </Button>
