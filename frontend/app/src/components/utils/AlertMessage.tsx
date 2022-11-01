@@ -13,7 +13,7 @@ type AlertMessageProps = {
   message: string;
 };
 
-function AlertMessage({ open, setOpen, severity, message }: AlertMessageProps) {
+const AlertMessage = ({ open, setOpen, severity, message }: AlertMessageProps) => {
   const handleCloseAlertMessage = (
     e?: React.SyntheticEvent,
     reason?: string,

@@ -4,12 +4,10 @@ import './index.css'
 
 import { Router } from './router/Router';
 
-function App() {
-  return (
+const App = () => (
     <BrowserRouter>
       <Router />
     </BrowserRouter>
-  );
-}
+  )
 
 export default App;
