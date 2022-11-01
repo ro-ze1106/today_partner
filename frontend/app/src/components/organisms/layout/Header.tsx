@@ -15,17 +15,13 @@ import PersonIcon from '@mui/icons-material/Person';
 import * as React from 'react';
 import { FC, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-type herderMenuType = {
-  display_name: string;
-  link: string;
-}[];
+import { attestationMenuType, herderMenuType } from '../../../type/Login_attestation';
 
 const headerMenu: herderMenuType = [ { display_name: 'ホーム', link: '/' } ,
 { display_name: '使い方', link: '/about' },
 { display_name: '設定', link: '/setting'}, ];
 
-const settings = ['ログイン', '新規登録'];
+const attestationMenu: attestationMenuType = [ { attestation_name: 'ログイン', link: 'sign_in'}, { attestation_name: '新規作成', link: 'sign_up'},];
 
 export const Header: FC = memo(() => {
   const navigate = useNavigate();
@@ -165,9 +161,9 @@ export const Header: FC = memo(() => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {attestationMenu.map((setting) => (
+                <MenuItem key={setting.attestation_name} onClick={ () => {navigate(`${setting.link}`, {replace: true});}}>
+                  <Typography textAlign="center">{setting.attestation_name}</Typography>
                 </MenuItem>
               ))}
             </Menu>

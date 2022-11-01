@@ -21,3 +21,13 @@ export type User = {
   created_at: Date
   updated_at: Date
 }
+
+export type herderMenuType = {
+  display_name: string;
+  link: string;
+}[];
+
+export type attestationMenuType = {
+  attestation_name: string;
+  link: string;
+}[];
