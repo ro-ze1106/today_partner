@@ -14,7 +14,7 @@ import {
 
 import { AuthContext } from '../../AuthContext';
 import { signUp } from '../../lib/api/auth';
-import { SignUpParams } from '../../type/Login_attestation';
+import { SignUpParams, User } from '../../type/Login_attestation';
 import AlertMessage from '../utils/AlertMessage';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -59,7 +59,6 @@ const SignUp: FC = () => {
 
     try {
       const res = await signUp(params);
-      console.log(res);
 
       if (res.status === 200) {
         // アカウント作成と同時にログインさせてしまう
@@ -68,16 +67,14 @@ const SignUp: FC = () => {
         Cookies.set('_uid', res.headers.uid || '');
 
         setIsSignedIn(true);
-        setCurrentUser(res.data.data);
+        setCurrentUser(res.data as User);
 
         navigate('/');
 
-        console.log('Signed in successfully!');
       } else {
         setAlertMessageOpen(true);
       }
     } catch (err) {
-      console.log(err);
       setAlertMessageOpen(true);
     }
   };
@@ -138,7 +135,7 @@ const SignUp: FC = () => {
                 !!(!name || !email || !password || !passwordConfirmation)
               }
               className={classes.submitBtn}
-              onClick={handleSubmit}
+              onClick={() => handleSubmit}
             >
               新規作成
             </Button>

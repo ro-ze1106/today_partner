@@ -12,7 +12,7 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 
 import { signIn } from '../../lib/api/auth';
-import { SignInParams } from '../../type/Login_attestation';
+import { SignInParams, User } from '../../type/Login_attestation';
 import { AuthContext } from '../../AuthContext';
 import AlertMessage from '../utils/AlertMessage';
 
@@ -60,7 +60,6 @@ const SignIn: FC = () => {
 
     try {
       const res = await signIn(params);
-      console.log(res);
 
       if (res.status === 200) {
         Cookies.set('_access_token', res.headers['access-token'] || '');
@@ -68,16 +67,14 @@ const SignIn: FC = () => {
         Cookies.set('_uid', res.headers.uid || '');
 
         setIsSignedIn(true);
-        setCurrentUser(res.data.data);
+        setCurrentUser(res.data as User);
 
         navigate('/');
 
-        console.log('Signed in successfully!');
       } else {
         setAlertMessageOpen(true);
       }
     } catch (err) {
-      console.log(err);
       setAlertMessageOpen(true);
     }
   };
@@ -86,7 +83,7 @@ const SignIn: FC = () => {
     <>
       <form noValidate autoComplete="off">
         <Card className={classes.card}>
-          <CardHeader className={classes.header} title="Sign In" />
+          <CardHeader className={classes.header} title="ログイン" />
           <CardContent>
             <TextField
               variant="outlined"
@@ -117,15 +114,15 @@ const SignIn: FC = () => {
               color="default"
               disabled={!!(!email || !password)} // 空欄があった場合はボタンを押せないように
               className={classes.submitBtn}
-              onClick={handleSubmit}
+              onClick={() => handleSubmit}
             >
-              Submit
+              ログイン
             </Button>
             <Box textAlign="center" className={classes.box}>
               <Typography variant="body2">
-                Don't have an account? &nbsp;
-                <Link to="/signup" className={classes.link}>
-                  Sign Up now!
+              アカウントを作成していない方は&nbsp;
+                <Link to="/sign_up" className={classes.link}>
+                  こちらをクリック
                 </Link>
               </Typography>
             </Box>
@@ -136,7 +133,7 @@ const SignIn: FC = () => {
         open={alertMessageOpen}
         setOpen={setAlertMessageOpen}
         severity="error"
-        message="Invalid emai or password"
+        message="メールアドレスかパスワードを確認してください"
       />
     </>
   );
