@@ -5,6 +5,8 @@ import { About } from '../components/pages/About';
 import { Home } from '../components/pages/Home';
 import { Page404 } from '../components/pages/Page404';
 import { Setting } from '../components/pages/Setting';
+import SignIn from '../components/pages/SignIn';
+import SignUp from '../components/pages/SignUp';
 import { HeaderLayout } from '../components/templates/HerderLayout';
 
 export const Router: FC = memo(() => (
@@ -14,6 +16,8 @@ export const Router: FC = memo(() => (
       <Route path="/about" element={<About />} />
       <Route path="/setting" element={<Setting />} />
       <Route path="/*" element={<Page404 />} />
+      <Route path="/sign_in" element={<SignIn />} />
+      <Route path="/sign_up" element={<SignUp />} />
     </Routes>
   </HeaderLayout>
 ));
