@@ -135,7 +135,7 @@ const SignUp: FC = () => {
                 !!(!name || !email || !password || !passwordConfirmation)
               }
               className={classes.submitBtn}
-              onClick={() => handleSubmit}
+              onClick={handleSubmit}
             >
               新規作成
             </Button>

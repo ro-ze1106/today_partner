@@ -95,8 +95,8 @@ module.exports = {
     ],
     // JSX 記述を使用する場合に react モジュールを React としてインポートすることを強制する。
     // 新しい JSX 変換形式を用いる場合はインポートが不要になるためこの設定を無効化
-    // constの場合はアロー関数で書く、functionの場合は関数式のみで書く
     'react/react-in-jsx-scope': 'off',
+    // constの場合はアロー関数で書く、functionの場合は関数式のみで書く
     'react/function-component-definition': [
       2,
       {
@@ -104,6 +104,15 @@ module.exports = {
         unnamedComponents: 'function-expression',
       },
     ],
+    // JSX 属性として渡された非同期関数のチェックを無効にします。
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": {
+          "attributes": false
+        }  
+      }
+    ]
   },
   overrides: [
     {

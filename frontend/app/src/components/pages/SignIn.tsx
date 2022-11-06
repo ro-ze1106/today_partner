@@ -114,7 +114,7 @@ const SignIn: FC = () => {
               color="default"
               disabled={!!(!email || !password)} // 空欄があった場合はボタンを押せないように
               className={classes.submitBtn}
-              onClick={() => handleSubmit}
+              onClick={handleSubmit}
             >
               ログイン
             </Button>
